@@ -366,37 +366,12 @@ for (const person of people) {
   person.age = person.died - person.born;
   person.century = Math.ceil(person.died / 100);
 
-  for (const info in person) {
-    const personData = document.createElement('td');
+  const fields = ['name', 'sex', 'born', 'died', 'age', 'century'];
 
-    switch (info) {
-      case 'name':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      case 'sex':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      case 'born':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      case 'died':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      case 'age':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      case 'century':
-        personData.textContent = person[info];
-        tableRow.appendChild(personData);
-        break;
-      default:
-        break;
-    }
+  for (const field of fields) {
+    const personData = document.createElement('td');
+    personData.textContent = person[field];
+    tableRow.appendChild(personData);
   }
 
   table.appendChild(tableRow);
